@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+torch.cuda.set_device(0)
 
 from .deep.feature_extractor import Extractor
 from .sort.nn_matching import NearestNeighborDistanceMetric

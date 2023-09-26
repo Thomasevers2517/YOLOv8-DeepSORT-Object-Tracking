@@ -2,9 +2,12 @@
 
 import hydra
 import torch
+torch.cuda.set_device(0) # Set to your desired GPU number
+
 import argparse
 import time
 from pathlib import Path
+
 
 import cv2
 import torch
@@ -238,7 +241,8 @@ class DetectionPredictor(BasePredictor):
             identities = outputs[:, -2]
             object_id = outputs[:, -1]
             
-            draw_boxes(im0, bbox_xyxy, self.model.names, object_id,identities)
+            # draw_boxes(im0, bbox_xyxy, self.model.names, object_id,identities)
+            draw_boxes(im0, bbox_xyxy, self.model.names, object_id, identities)
 
         return log_string
 
